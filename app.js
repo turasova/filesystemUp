@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 
-import filesRouter from "./routes/filesRouter.js";
+import filesRouter from "#routes/filesRouter.js";
 
 const app = express();
 
