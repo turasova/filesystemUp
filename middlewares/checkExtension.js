@@ -12,7 +12,7 @@ export const checkExtension = (req, res, next) => {
   const isInclude = EXTENSIONS.some((el) => fileName.endsWith(el));
 
   if (!isInclude) {
-    next(HttpError(400, `App does not support [${lastEl}] extention `));
+    next(HttpError(400, `App does not support [${lastEl}] extension`));
   }
   next();
 };
