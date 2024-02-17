@@ -7,9 +7,9 @@ export const checkExtension = (req, res, next) => {
   const separate = fileName.split(".");
 
   const lastEl = separate[separate.length - 1];
-  // const isInclude = EXTENSIONS.some((el) => el === lastEl);
+  const isInclude = EXTENSIONS.some((el) => el === lastEl);
 
-  const isInclude = EXTENSIONS.some((el) => fileName.endsWith(el));
+  // const isInclude = EXTENSIONS.some((el) => fileName.endsWith(el));
 
   if (!isInclude) {
     next(HttpError(400, `App does not support [${lastEl}] extension`));
