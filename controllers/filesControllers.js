@@ -37,3 +37,21 @@ export const getFiles = async (_, res, next) => {
     next(HttpError(500));
   }
 };
+
+export const getFile = async (req, res, next) => {
+  try {
+    const files = await fs.readdir(fileFolder);
+    const { fileName } = req.params;
+
+    if (!files.includes(fileName)) {
+     throw HttpError(404,"Not found")
+    }
+    const filePath = path.resolve("./files", fileName);
+
+    const content = await fs.readFile(filePath, "utf-8");
+    res.json({ content: content });
+
+  } catch (error) {
+    next(error)
+  }
+}
